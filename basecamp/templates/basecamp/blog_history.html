@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{% extends 'basecamp/base_full.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="jumbotron">
+    <h1 class="display-3">Blog History</h1>
+    <p class="lead">This is a simple & a little bit private space. But I will make some interesting items with using Python!</p>
+    <hr class="my-4">
+    <p>Hope to share my history and development</p>
+
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <li class="my-3">
+                2020년 9월 1일 Kstyle Blog 오픈
+            </li>
+
+            <li class="my-3">
+                2020년 9월 7일 HTTPS 설정 적용 --(cloudflare)
+            </li>
+
+            <li class="my-3">
+                2020년 9월 12일 Weather Information 추가 (using openweathermap API)
+            </li>
+
+            <li class="my-3">
+                2020년 12월 28일 Covid19 Visualization 추가 (Plotly Dash)
+            </li>
+
+            <li class="my-3">
+                앞으로도 Python을 활용한 여러 아이템들을 추가할 예정입니다.
+            </li>
+
+
+
+        </div>
+
+        <div class="col-md">
+            <img class="img-fluid" src="{% static 'images/history1.jpg' %}"/>
+            {% endblock %}
+        </div>
+
+    </div>
+</div>

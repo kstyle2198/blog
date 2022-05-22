@@ -1,0 +1,140 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}{{object.title}} - My Blog{% endblock %}
+
+{% block content %}
+<!-- Title -->
+<h1 class="mt-4">{{object.title}}</h1>
+{% if request.user == object.author %}
+<button type="button" class="btn btn-sm btn-outline-secondary float-right" onclick="location.href='{{object.get_update_url}}'">EDIT</button>
+{% endif %}
+{% if object.category %}
+<span class="badge badge-primary float-right">{{object.category}}</span>
+{% else %}
+<span class="badge badge-primary float-right">미분류</span>
+{% endif %}
+
+
+<!-- Author -->
+<p class="lead">
+    by
+    <a href="#">{{object.author.username}}</a>
+</p>
+
+<hr>
+
+<!-- Date/Time -->
+<p>Posted on {{object.created}}</p>
+
+<hr>
+
+<!-- Preview Image -->
+{% if object.head_image %}
+<img class="card-img-top" src="{{object.head_image.url}}" alt="{{object.title}}">
+{% else %}
+<img class="card-img-top" src="https://picsum.photos/700/300?grayscale" alt="No Images">
+<h6> ** 랜덤 이미지** </h6>
+{% endif %}
+<!--        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">-->
+
+<hr>
+
+<!-- Post Content -->
+<div class="card-body">
+    <p class="card-text">{{object.get_markdown_content | safe}}</p>
+    {% for tag in object.tags.all %}
+    <a href="{{tag.get_absolute_url}}">#{{tag}}</a>
+    {% endfor %}
+</div>
+<hr>
+
+
+
+<!-- Comments Form -->
+<div class="card my-4">
+    <h5 class="card-header">Leave a Comment:</h5>
+    <div class="card-body">
+        {% if request.user.is_authenticated %}
+        <form method="post" action="{{object.get_absolute_url}}new_comment/">{% csrf_token %}
+            <div class="form-group">
+                {{comment_form | crispy}}
+             </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        {% else %}
+
+        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#loginModal">
+                            Login
+        </button>
+        {% endif %}
+
+    </div>
+</div>
+
+<div id="comment-list">
+    {% for cmt in object.comment_set.all %}
+    <!-- Single Comment -->
+    <div class="media mb-4" id="comment-id-{{cmt.pk}}">
+        {% if cmt.author.socialaccount_set.all.0.get_avatar_url %}
+        <img width='50px' class="d-flex mr-3 rounded-circle" src="{{ cmt.author.socialaccount_set.all.0.get_avatar_url }}" alt="">
+        {% else %}
+        <img width='50px' class="d-flex mr-3 rounded-circle" src="https://api.adorable.io/avatars/50/{{cmt.author}}" alt="">
+        {% endif %}
+
+
+        <div class="media-body">
+            {% if cmt.author == request.user %}
+            <button class="btn btn-sm btn-warning float-right" data-toggle="modal" data-target="#deleteCommentModal-{{cmt.pk}}">delete</button>
+            <button class="btn btn-sm btn-info float-right" onclick="location.href='/blog/edit_comment/{{cmt.pk}}'">edit</button>
+            {% endif %}
+            <h5 class="mt-0">{{cmt.author}}<small class="text-muted">-[등록일 {{cmt.created_at}}, 수정일 {{cmt.modified_at}}]</small></h5>
+            {{cmt.get_markdown_content | safe}}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Modal -->
+{% for cmt in object.comment_set.all %}
+{% if user == cmt.author %}
+<div class="modal fade" id="deleteCommentModal-{{cmt.pk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">정말로 삭제하시겠습니까?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>{{cmt.get_markdown_content |safe}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='/blog/delete_comment/{{cmt.pk}}/'">Delete</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endfor %}
+
+
+<!--<div class="card mb-4">-->
+<!--    {% if post.head_image %}-->
+<!--    <img class="card-img-top" src="{{post.head_image.url}}" alt="Card Image cap">-->
+<!--    {% else %}-->
+<!--    <img class="card-img-top" src="https://picsum.photos/700/300?grayscale" alt="No Images">-->
+<!--    {% endif %}-->
+<!--    <div class="card-body">-->
+<!--        <h2 class="card-title">{{post.title}}</h2>-->
+<!--        <p class="card-text">{{post.content}}</p>-->
+<!--    </div>-->
+<!--    <div class="card-footer text-muted">-->
+<!--        {{post.created}} by-->
+<!--        <a href="#">{{post.author}}</a>-->
+<!--    </div>-->
+<!--</div>-->
+
+{% endblock %}
