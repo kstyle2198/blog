@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['158.247.205.216', '127.0.0.1',
                  'kstyle7.kr', 'www.kstyle7.kr']   #
 
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
 # Application definition
 
 INSTALLED_APPS = [
