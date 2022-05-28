@@ -8,7 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App_JavaScript</title>
     <link rel="stylesheet" href="{% static 'font/Rimouski.css' %}" />
-    <link rel="stylesheet" href="{% static 'blog/weather_style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'blog/_assets/css/weather_style.css' %}"
+    />
   </head>
   <body>
     <div class="container">
@@ -18,10 +21,13 @@
       <div class="notification"></div>
       <div class="weather-container">
         <div class="weather-icon">
-          <img src="icons/unknown.png" alt="" />
+          <!-- <img src="icons/unknown.png" alt="" /> -->
         </div>
         <div class="temperature-value">
-          <p>-°<span>C</span></p>
+          <p>
+            -°
+            <span>C</span>
+          </p>
         </div>
         <div class="temperature-description">
           <p>-</p>
@@ -31,6 +37,6 @@
         </div>
       </div>
     </div>
-    <script src="{% static 'blog/weather_app.js' %}"></script>
+    <script src="{% static 'blog/_assets/js/weather_app.js' %}"></script>
   </body>
 </html>

@@ -1,75 +1,98 @@
-{% extends 'blog/base.html' %}
+{% extends 'blog/base.html' %} {% block content %} {% if object_list.exists %}
 
-{% block content %}
-
-{% if object_list.exists %}
-<!-- Blog Post -->
-
-<h1 class="my-4">Headline News
-    <small>   for Mini and minimalist</small>
-    {% if user.is_authenticated %}
-    <button class="btn btn-primary float-right" onclick="location.href='/blog/create/'">New Post</button>
-    {% endif %}
-    <br/>
-    {% if search_info %}<small class="text-muted">: {{search_info}} ({{object_list.count}})</small>{% endif %}
+<h1 class="my-4">
+  Headline News
+  <small class="text-muted">for Mini and minimalist</small>
+  {% if user.is_authenticated %}
+  <button
+    class="btn btn-primary disabled float-right"
+    onclick="location.href='/blog/create/'"
+  >
+    New Posting
+  </button>
+  {% endif %}
+  <br />
+  {% if search_info %}
+  <small class="text-muted">: {{search_info}} ({{object_list.count}})</small>
+  {% endif %}
 </h1>
+
 {% for post in object_list %}
 
 <div class="card mb-4" id="post-card-{{post.pk}}">
-    {% if post.head_image %}
-    <img class="card-img-top" src="{{post.head_image.url}}" alt="Card Image cap">
+  {% if post.head_image %}
+  <img
+    class="card-img-top"
+    src="{{post.head_image.url}}"
+    alt="Card Image cap"
+  />
+  {% else %}
+  <img
+    class="card-img-top"
+    src="https://picsum.photos/700/300?grayscale"
+    alt="No Images"
+  />
+  <h6>** 랜덤 이미지**</h6>
+  {% endif %}
+  <div class="card-body">
+    {% if post.category %}
+    <span class="badge badge-primary float-right" style="width: 10%;">
+      {{post.category}}
+    </span>
     {% else %}
-    <img class="card-img-top" src="https://picsum.photos/700/300?grayscale" alt="No Images">
-    <h6> ** 랜덤 이미지** </h6>
+    <span class="badge badge-primary float-right" style="width: 10%;">
+      미분류
+    </span>
     {% endif %}
-    <div class="card-body">
-        {% if post.category %}
-        <span class="badge badge-primary float-right" style="width:10%">{{post.category}}</span>
-        {% else %}
-        <span class="badge badge-primary float-right" style="width:10%">미분류</span>
-        {% endif %}
-        <h2 class="card-title">{{post.title}}</h2>
-        <p class="card-text">{{post.get_markdown_content|striptags|truncatewords:"50"}}</p>
+    <h2 class="card-title">{{post.title}}</h2>
+    <p class="card-text">
+      {{post.get_markdown_content|striptags|truncatewords:"50"}}
+    </p>
 
-            {% for tag in post.tags.all %}
-            <a href="{{tag.get_absolute_url}}">#{{ tag }}</a>
-            {% endfor %}
-            <br/>
-            <br/>
+    {% for tag in post.tags.all %}
+    <a href="{{tag.get_absolute_url}}">#{{ tag }}</a>
+    {% endfor %}
+    <br />
+    <br />
 
-        <a href="{{post.get_absolute_url}}" class="btn btn-primary" id="read-more-post-{{ post.pk }}">Read More &rarr;</a>
-    </div>
-    <div class="card-footer text-muted">
-        {{post.created}} by
-        <a href="#">{{post.author}}</a>
-    </div>
+    <a
+      href="{{post.get_absolute_url}}"
+      class="btn btn-primary"
+      id="read-more-post-{{ post.pk }}"
+    >
+      Read More &rarr;
+    </a>
+  </div>
+  <div class="card-footer text-muted">
+    {{post.created}} by
+    <a href="#">{{post.author}}</a>
+  </div>
 </div>
-{% endfor %}
-{% if is_paginated %}
+{% endfor %} {% if is_paginated %}
 <!-- Pagination -->
 <ul class="pagination justify-content-center mb-4">
-    {% if page_obj.has_next %}
-    <li class="page-item">
-        <a class="page-link" href="?page={{page_obj.next_page_number}}">&larr; Older</a>
-    </li>
-    {% else %}
-    <li class="page-item disabled">
-        <a class="page-link" href="#">&larr; Older</a>
-    </li>
-    {% endif %}
-
-    {% if page_obj.has_previous %}
-    <li class="page-item">
-        <a class="page-link" href="?page={{page_obj.previous_page_number}}">Newer &rarr;</a>
-    </li>
-    {% else %}
-    <li class="page-item disabled">
-        <a class="page-link" href="#">Newer &rarr;</a>
-    </li>
-    {% endif %}
+  {% if page_obj.has_next %}
+  <li class="page-item">
+    <a class="page-link" href="?page={{page_obj.next_page_number}}">
+      &larr; Prev
+    </a>
+  </li>
+  {% else %}
+  <li class="page-item disabled">
+    <a class="page-link" href="#">&larr; Prev</a>
+  </li>
+  {% endif %} {% if page_obj.has_previous %}
+  <li class="page-item">
+    <a class="page-link" href="?page={{page_obj.previous_page_number}}">
+      Next &rarr;
+    </a>
+  </li>
+  {% else %}
+  <li class="page-item disabled">
+    <a class="page-link" href="#">Next &rarr;</a>
+  </li>
+  {% endif %}
 </ul>
-{% endif %}
-{% else %}
-<h3>아직 게시물이 없습니다.</h3>
-{% endif %}
-{% endblock %}
+{% endif %} {% else %}
+<h3>We Could Not Find Any Posts</h3>
+{% endif %} {% endblock %}

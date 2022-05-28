@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% extends 'basecamp/base_full.html' %} {% load static %} {% block content %}
+<link rel="stylesheet" href="{% static 'blog/_assets/css/clock.css' %}">
+
+<body>
+    <div class="my-image">
+        
+    </div>
+
+    <div class="container">
+        <div class="weather_logo">
+            <i class="fas fa-cloud-sun"></i>
+            <span class="js-weather"></span>
+    
+        <div class="js-clock">
+            <h1>00:00</h1>
+        </div>
+    
+        <form class="js-form form">
+            <input type="text" style ="font-size: 20pt" placeholder="What is your name?">
+        </form>
+        <h4 class="js-greetings greetings"></h4>
+    
+        <form class="js-toDoForm">
+            <input type="text" style ="font-size: 15pt" placeholder="Write your to do!">
+        </form>
+     
+        <ul class="js-toDoList"></ul>
+       
+        <!-- <video id="video1" width="400" height="300" controls>
+            <source src="./picture/윤아윤지주전.mp4" type="video/mp4">
+    
+          Your browser does not support the video tag.
+          </video> -->
+       
+
+    </div>
+    
+
+    
+</body>
+
+
+<script src="{% static 'blog/_assets/js/clock.js' %}"></script>
+<script src="{% static 'blog/_assets/js/greeting.js' %}"></script>
+<script src="{% static 'blog/_assets/js/todo.js' %}"></script>
+<script src="{% static 'blog/_assets/js/bg.js' %}"></script>
+<script src="{% static 'blog/_assets/js/weather.js' %}"></script>
+
+
+
+
+
+{% endblock %}

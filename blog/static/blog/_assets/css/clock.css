@@ -1,0 +1,96 @@
+
+body {
+
+  background-color: white;
+  margin: 0;
+    /* Add the blur effect */
+  background-attachment: fixed;
+
+}
+.js-clock {
+  color: white;
+  font-size: 200px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 150px;
+  margin-block-start:60px;
+  margin-block-end: 40px;
+}
+
+input {
+  background-color: white;
+  opacity: 0.4;
+}
+
+.form,
+.greetings {
+  display: none;
+  color: white;
+  background-color: transparent;
+  font-size: 40px;
+  text-align: center;
+  margin-block-start: 10px;
+  margin-block-end: 10px;
+}
+
+.showing {
+  display: block;
+}
+
+.js-toDoForm {
+  color: white;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.weather_logo {
+  vertical-align: top;
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+li {
+  color: white;
+  font-size: 20px;
+  text-decoration: none;
+  text-align: left;
+  margin-top: 5px;
+}
+
+ul {
+  list-style: none;
+}
+
+#video1 {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bgimage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeIn 0.5s linear;
+}
