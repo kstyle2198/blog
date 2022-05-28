@@ -4319,7 +4319,7 @@
    padding-left: 0;
    margin-bottom: 0;
    list-style: none;
-   align-content: center;
+   align-content: end;
  }
  
  .navbar-nav .nav-link {

@@ -28,8 +28,8 @@ def blog_covid(request):
     )
 
 
-def blog_family(request):
+def blog_time(request):
     return render(
         request,
-        'basecamp/blog_family.html'
+        'basecamp/blog_time.html'
     )
