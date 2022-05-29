@@ -1,143 +1,138 @@
 <!--네이게이션바-->
 {% load static %}
+<div class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <div class="container">
+    <div class="col-sm-1"><a href = "/"></a>
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <lottie-player
+        src="https://assets4.lottiefiles.com/packages/lf20_5l4tiphk.json"
+        background="transparent"
+        speed="1"
+        style="width: 100px; height: 100px;"
+        loop
+        autoplay
+      ></lottie-player>
+    </div>
+    <a href="/" class="navbar-brand">Kstyle7</a>
 
-<div class="container">
-  <div class="bs-docs-section clearfix">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="page-header">
-          <h1 id="navbar">K Style7</h1>
-        </div>
-        <div class="col-mg-2">
-          <ul class="nav navbar-nav ml-auto float-right">
-            {% if user.is_authenticated %}
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle btn btn-outline-success"
-                data-bs-toggle="dropdown"
-                href="#"
-                role="button"
-                aria-haspopup="true"
-                aria-expanded="false"
-                style="width: 100%;"
-              >
-                {{user}}
-              </a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="/accounts/logout/">Log-out</a>
-              </div>
-            </li>
-            {% else %}
-            <li class="nav-item">
-              <button
-                type="button"
-                class="btn btn-primary"
-                data-bs-toggle="modal"
-                data-bs-target="#loginModal"
-              >
-                Login
-              </button>
-            </li>
-            {% endif %}
-            <!--  Dark Background Theme -->
-            <input
-              type="button"
-              class="btn btn-secondary"
-              style="width: 150%;"
-              value="Night"
-              onclick="
-                      var target = document.querySelector('body')
-                      if(this.value === 'Night'){
-                      target.style.backgroundColor = 'black';
-                      target.style.color = 'white';
-                      this.value = 'Day';
-                      var alist = document.querySelectorAll('a');
-                      var i = 0;
-                      while(i < alist.length){
-                      alist[i].style.color = 'white';
-                      i = i +1;
-                      }
-                      } else {
-                      target.style.backgroundColor = 'white';
-                      target.style.color = 'black';
-                      this.value = 'Night';
-                      var alist = document.querySelectorAll('a');
-                      var i = 0;
-                      while(i < alist.length){
-                      alist[i].style.color = 'white';
-                      i = i +1;
-                      }
-                      }
-                      "
-            />
-          </ul>
-        </div>
-      </div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="nav_area">
-        <div class="container">
-          <a class="navbar-brand" href="/blog/">
-            Home
-            <span id="nav-title">
-              {% if category %} -
-              <small>{{category}}</small>
-              {% endif %} {% if tag %} -
-              <small>#{{tag}}</small>
-              {% endif %}
-            </span>
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+  
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/about_me/">About Me</a>
+        </li>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog_history/">Blog History</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog_time/">Time</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/blog_covid/">Covid 19</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            data-bs-toggle="dropdown"
+            href="#"
+            id="download"
           >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="/about_me/">About Me</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/blog_history/">Blog History</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/blog_time/">Time</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/blog_covid/">Covid 19</a>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  href="#"
-                  role="button"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Action</a>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Separated link</a>
-                </div>
-              </li>
-            </ul>
+            Dropdown
+            <span class="caret"></span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="download">
+            <a
+              class="dropdown-item"
+              rel="noopener"
+              target="_blank"
+              href="#"
+            >
+            drop1</a>
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item"
+              href="#"
+              download
+            >
+            download
+            </a>
+            <a class="dropdown-item" href="#" download>
+              download
+            </a>
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item"
+              href="#"
+              download
+            >
+            download
+            </a>
+            <a
+              class="dropdown-item"
+              href="#"
+              download
+            >
+            download
+            </a>
           </div>
-        </div>
-      </nav>
+        </li>
+      </ul>
+      <div class="col-sm-1"><a href = "/"></a>
+        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+        <lottie-player
+          src="https://assets5.lottiefiles.com/packages/lf20_hzyzmdld.json"
+          background="transparent"
+          speed="1"
+          style="width: 200px; height: 100px;"
+          loop
+          autoplay
+        ></lottie-player></div>
+
+      <ul class="navbar-nav ms-md-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item dropdown">
+          <a
+          class="nav-link dropdown-toggle btn btn-outline-success"
+          data-bs-toggle="dropdown"
+          href="#"
+          role="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          style="width: 100%;"
+          >
+          {{user}}
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/accounts/logout/">Log-out</a>
+          </div>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#loginModal"
+          >
+            Login
+          </button>
+        </li>
+        {% endif %}
+      </ul>
     </div>
   </div>
-</div>
 
 {% load socialaccount %}
 <!-- Modal -->
@@ -193,10 +188,16 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+        >
           Close
         </button>
       </div>
     </div>
   </div>
 </div>
+</div>
+
