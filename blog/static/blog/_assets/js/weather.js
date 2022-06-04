@@ -16,11 +16,13 @@ function getWeather(lat, lng) {
       const temperature = json.main.temp;
       const condition = json.weather[0].description;
       const icon = json.weather[0].icon;
-      // console.log(condition);
+      console.log(condition);
       const place = json.name;
+      console.log(place);
       weather.innerText = `${condition} (${temperature}℃) @ ${place}`;
     });
 }
+
 
 function saveCoords(coordsObj) {
   localStorage.setItem(COORDS, JSON.stringify(coordsObj));
@@ -44,6 +46,7 @@ function handleGeoError() {
 function askForCoords() {
   navigator.geolocation.getCurrentPosition(handleGeoSuccess, handleGeoError);
 }
+
 
 function loadCoords() {
   const loadedCoords = localStorage.getItem(COORDS);

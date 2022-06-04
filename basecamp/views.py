@@ -33,3 +33,10 @@ def blog_time(request):
         request,
         'basecamp/blog_time.html'
     )
+
+
+def blog_repl(request):
+    return render(
+        request,
+        'basecamp/blog_repl.html'
+    )
