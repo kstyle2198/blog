@@ -17,6 +17,11 @@
       crossorigin="anonymous"
     />
     <link href="{% static 'blog/_assets/css/product.css' %}" rel="stylesheet" />
+    <py-env>
+      - pandas 
+      <!-- - numpy 
+      - matplotlib.pyplot -->
+    </py-env>
   </head>
   <body>
     <main>
@@ -53,7 +58,10 @@
         <p class="text-info">
           Tip : Press Shift-Enter to evaluate a cell
         </p>
-        <py-repl class="my-repl" auto-generate="" true></py-repl>
+        <py-repl class="my-repl" auto-generate="" true>
+          import pandas as pd
+
+        </py-repl>
       </div>
       <br />
       <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
