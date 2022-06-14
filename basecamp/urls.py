@@ -1,7 +1,5 @@
 
 from django.urls import path, include
-
-from ..dumpfile import covid
 from . import views
 
 urlpatterns = [
