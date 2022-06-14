@@ -1,6 +1,8 @@
 
 from django.urls import path, include
-from . import views, covid
+
+from ..dumpfile import covid
+from . import views
 
 urlpatterns = [
     path('', views.index),
