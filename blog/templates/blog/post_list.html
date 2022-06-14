@@ -21,17 +21,17 @@
 
 <div class="card mb-4" id="post-card-{{post.pk}}">
   {% if post.head_image %}
-  <img
+  <a href="{{post.get_absolute_url}}"><img
     class="card-img-top"
     src="{{post.head_image.url}}"
     alt="Card Image cap"
-  />
+  /></a>
   {% else %}
-  <img
+  <a href="{{post.get_absolute_url}}"><img
     class="card-img-top"
     src="https://picsum.photos/700/300?grayscale"
     alt="No Images"
-  />
+  /></a>
   <h6>** 랜덤 이미지**</h6>
   {% endif %}
   <div class="card-body">
