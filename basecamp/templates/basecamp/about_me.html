@@ -1,44 +1,50 @@
-{% extends 'basecamp/base_full.html' %}
-{% load static %}
-
-{% block content %}
+{% extends 'basecamp/base_full.html' %} {% load static %} {% block content %}
 <div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <h1 class="display-3">About Me</h1>
-            <h3 class="my-3">Hi! Great to meet you here, my blog - K Style7</h3>
+  <div class="row">
+    <div class="col-md-8">
+      <h1 class="display-3">About Me</h1>
+      <h3 class="my-3">Hi! Great to meet you here, my blog - K Style7</h3>
 
-            <h5 class="my-3">I am Jongbae Kim, living in South Korea.</h5>
-            <p class="my-3">In these days, I am very much interested in studying some programing languages like python, javascript, etc.
-                and in fact, this is my first output with using python django module. I am pretty sure that we could do a lot of things with our computers.
-                As I have just started to learn codings since April this year, I am not high-level programmer yet.
-                but I have a plan to be a soft full-stack programmer, this year and also try to do many projects from now on.
-                Thank you for visiting my blog today. and I really hope to meet you in my other projects again.
-
-            </p>
-        </div>
-
-
-
-        <div class="col-md">
-            <img class="img-fluid" src="{% static 'images/13.jpg' %}"/>
-
-        </div>
+      <h5 class="my-3">I am Jongbae Kim, living in South Korea.</h5>
+      <p class="my-3">
+        In these days, I am very much interested in studying some programing
+        languages like python, javascript, etc. and in fact, this is my first
+        output with using python django module. I am pretty sure that we could
+        do a lot of things with our computers. As I have just started to learn
+        codings since April this year, I am not high-level programmer yet. but I
+        have a plan to be a soft full-stack programmer, this year and also try
+        to do many projects from now on. Thank you for visiting my blog today.
+        and I really hope to meet you in my other projects again.
+      </p>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <img class="img-fluid" src="{% static 'images/12.jpg' %}"/>
-        </div>
-        <div class="col-md">
-            <h1 class="my-3">Contact Me</h1>
-            <h3>E-mail : <small><a href = "#">jongbaekim0710@gmail.com</a></small></h3>
-            <h3>GitHub : <small><a href = "https://github.com/kstyle2198">https://github.com/kstyle2198</a></small></h3>
-        </div>
-
+    <div class="col-md">
+      <img class="img-fluid" src="{% static 'images/13.jpg' %}" />
     </div>
+  </div>
 
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid" src="{% static 'images/12.jpg' %}" />
+    </div>
+    <div class="col-md">
+      <h1 class="my-3">Contact Me</h1>
+      <h3>
+        E-mail : <small><a href="#">jongbaekim0710@gmail.com</a></small>
+      </h3>
+      <h3>
+        GitHub :
+        <small
+          ><a
+            href="https://github.com/kstyle2198"
+            rel="noopener"
+            target="_blank"
+            >https://github.com/kstyle2198</a
+          ></small
+        >
+      </h3>
+    </div>
+  </div>
 </div>
-
 
 {% endblock %}
