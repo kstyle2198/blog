@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog',
     'basecamp',
-    'plotly_dash.apps.PlotlyDashConfig',
-    'django_plotly_dash.apps.DjangoPlotlyDashConfig',
+    # 'plotly_dash.apps.PlotlyDashConfig',
+    # 'django_plotly_dash.apps.DjangoPlotlyDashConfig',
     'channels',
     'channels_redis',
     'markdownx',
@@ -66,7 +66,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_plotly_dash.middleware.BaseMiddleware',
+    # 'django_plotly_dash.middleware.BaseMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -111,21 +111,21 @@ CHANNEL_LAYERS = {
     },
 }
 
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'django_plotly_dash.finders.DashAssetFinder',
-    'django_plotly_dash.finders.DashComponentFinder'
-]
+# STATICFILES_FINDERS = [
+#     'django.contrib.staticfiles.finders.FileSystemFinder',
+#     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#     'django_plotly_dash.finders.DashAssetFinder',
+#     'django_plotly_dash.finders.DashComponentFinder'
+# ]
 
-PLOTLY_COMPONENTS = [
+# PLOTLY_COMPONENTS = [
 
-    'dash_core_components',
-    'dash_html_components',
-    'dash_renderer',
+#     'dash_core_components',
+#     'dash_html_components',
+#     'dash_renderer',
 
-    'dpd_components'
-]
+#     'dpd_components'
+# ]
 
 
 

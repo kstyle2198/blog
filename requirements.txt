@@ -32,7 +32,6 @@ Django==3.2.13
 django-allauth==0.50.0
 django-crispy-forms==1.14.0
 django-markdownx==3.0.1
-django-plotly-dash==1.7.2
 django-redis==5.2.0
 dpd-components==0.1.0
 EditorConfig==0.12.3

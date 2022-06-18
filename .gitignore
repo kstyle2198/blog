@@ -8,4 +8,7 @@ db.sqlite3
 
 migrations/
 
+
 dumpfile/
+
+plotly_dash/
