@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'basecamp',
     # 'plotly_dash.apps.PlotlyDashConfig',
     # 'django_plotly_dash.apps.DjangoPlotlyDashConfig',
-    'channels',
-    'channels_redis',
+    # 'channels',
+    # 'channels_redis',
     'markdownx',
     'crispy_forms',
     'django.contrib.sites',
@@ -98,18 +98,18 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
-ASGI_APPLICATION = 'mysite.routing.application'
+# ASGI_APPLICATION = 'mysite.routing.application'
 
-X_FRAME_OPTIONS = 'SAMEORIGIN'
+# X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'channels_redis.core.RedisChannelLayer',
-        'CONFIG': {
-            'hosts': [('127.0.0.1', 6379),],
-        },
-    },
-}
+# CHANNEL_LAYERS = {
+#     'default': {
+#         'BACKEND': 'channels_redis.core.RedisChannelLayer',
+#         'CONFIG': {
+#             'hosts': [('127.0.0.1', 6379),],
+#         },
+#     },
+# }
 
 # STATICFILES_FINDERS = [
 #     'django.contrib.staticfiles.finders.FileSystemFinder',
