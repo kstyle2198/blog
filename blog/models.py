@@ -41,11 +41,11 @@ class Post(models.Model):
 
     created = models.DateTimeField(auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.SET_NULL)
+    category = models.ForeignKey(Category, blank=True, null=True, on_delete=models.SET_NULL)  # 카테고리가 삭제되어도 포스트는 유지+대신 카테고리는 null true
     tags = models.ManyToManyField(Tag, blank=True)
 
     class Meta:
-        ordering = ['-created',]
+        ordering = ['-created',]     # 새글이 제일 위로 위치하도록 정렬
 
     def __str__(self):
         return '{0}: {1}'.format(self.title, self.author)

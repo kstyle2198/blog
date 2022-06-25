@@ -31,7 +31,7 @@ class PostSearch(PostList):
     def get_queryset(self):
         q = self.kwargs['q']
         object_list = Post.objects.filter(
-            Q(title__contains=q) | Q(content__contains=q))
+            Q(title__contains=q) | Q(content__contains=q))   # 타이틀이나 콘텐츠를 대상으로 q를 검색
         return object_list
 
     def get_context_data(self, *, object_list=None, **kwargs):
