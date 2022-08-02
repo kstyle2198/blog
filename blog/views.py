@@ -17,16 +17,6 @@ class PostList(ListView):
             category=None).count()
         return context
 
-
-# Create your views here.
-# def index(request):
-#     posts = Post.objects.all()
-#     return render(
-#         request,
-#         'blog/index.html',
-#         {'posts': posts}
-#     )
-
 class PostSearch(PostList):
     def get_queryset(self):
         q = self.kwargs['q']

@@ -33,7 +33,7 @@
 <img class="card-img-top" src="{{object.head_image.url}}" alt="{{object.title}}">
 {% else %}
 <img class="card-img-top" src="https://picsum.photos/700/300?grayscale" alt="No Images">
-<h6> ** Random images from Unsplash ** </h6>
+<h6> ** Random images ** </h6>
 {% endif %}
 <!--        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">-->
 
@@ -57,13 +57,13 @@
         {% if request.user.is_authenticated %}
         <form method="post" action="{{object.get_absolute_url}}new_comment/">{% csrf_token %}
             <div class="form-group">
-                {{comment_form | crispy}}
-             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+                {{comment_form | crispy}}    
+            </div>
+            <button type="submit" class="badge bg-info">Submit</button>
         </form>
         {% else %}
 
-        <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#loginModal">
+        <button type="button" class="btn btn-primary btn-block" data-bs-toggle="modal" ddata-bs-target="#loginModal">
                             Login
         </button>
         {% endif %}
@@ -119,22 +119,5 @@
 </div>
 {% endif %}
 {% endfor %}
-
-
-<!--<div class="card mb-4">-->
-<!--    {% if post.head_image %}-->
-<!--    <img class="card-img-top" src="{{post.head_image.url}}" alt="Card Image cap">-->
-<!--    {% else %}-->
-<!--    <img class="card-img-top" src="https://picsum.photos/700/300?grayscale" alt="No Images">-->
-<!--    {% endif %}-->
-<!--    <div class="card-body">-->
-<!--        <h2 class="card-title">{{post.title}}</h2>-->
-<!--        <p class="card-text">{{post.content}}</p>-->
-<!--    </div>-->
-<!--    <div class="card-footer text-muted">-->
-<!--        {{post.created}} by-->
-<!--        <a href="#">{{post.author}}</a>-->
-<!--    </div>-->
-<!--</div>-->
 
 {% endblock %}

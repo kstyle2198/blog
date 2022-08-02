@@ -32,15 +32,15 @@
     src="https://picsum.photos/700/300?grayscale"
     alt="No Images"
   /></a>
-  <h6>** random images from Unsplash**</h6>
+  <h6>** random images **</h6>
   {% endif %}
   <div class="card-body">
     {% if post.category %}
-    <span class="badge badge-primary float-right" style="width: 10%;">
+    <span class="badge rounded-pill bg-success float-left" style="width: 15%;">
       {{post.category}}
     </span>
     {% else %}
-    <span class="badge badge-primary float-right" style="width: 10%;">
+    <span class="badge rounded-pill bg-success float-left" style="width: 15%;">
       Unclassified
     </span>
     {% endif %}
