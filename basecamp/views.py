@@ -21,10 +21,10 @@ def blog_history(request):
     )
 
 
-def blog_covid(request):
+def blog_jarvis(request):
     return render(
         request,
-        'basecamp/blog_covid.html'
+        'basecamp/blog_jarvis.html'
     )
 
 
